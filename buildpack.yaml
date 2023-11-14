@@ -1,0 +1,13 @@
+buildpack:
+  name: python
+  version: 1
+
+  build-steps:
+  - - text: Install Python.
+    - command: sudo apt-get install python3 -y
+
+  - - text: Install the Python dependencies.
+    - command: pip3 install -r requirements.txt
+
+  - - text: Start the Python application.
+    - command: gunicorn myapp:app
